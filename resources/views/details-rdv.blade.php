@@ -25,7 +25,7 @@
                            </thead>
                            <tbody class="text-center">
                                <?php
-                               $cx = new PDO('mysql:host=localhost;port=3312;dbname=dentaire;charset=utf8', 'root', '');
+                               $cx = new PDO('mysql:host=localhost;port=3306;dbname=dentaire;charset=utf8', 'root', '');
                                $nomComplet = '';
                                $tel = '';
                                $date = 'DATE(date_rdv)=CURDATE() ';
@@ -59,7 +59,7 @@
                                }
 
                                $sql = 'select nom,prenom,description,time_rdv,email,tel from rdvs where ' . $date . $tel
-                               . $nomComplet . 'ORDER BY time_rdv ASC';
+                               . $nomComplet . ' ORDER BY time_rdv ASC';
 
                                $return = $cx->query($sql);
 
